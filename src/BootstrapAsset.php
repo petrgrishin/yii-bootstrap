@@ -18,7 +18,7 @@ class BootstrapAsset extends CApplicationComponent {
         $assetPath = $this->getAssetManager()->publish('/vendor/twbs/bootstrap/dist/');
         $this->getClientScript()->registerCssFile($assetPath . 'css/bootstrap.min.css');
         $this->getClientScript()->registerCssFile($assetPath . 'css/bootstrap-theme.min.css');
-        $this->getClientScript()->registerScriptFile($assetPath . 'css/bootstrap.min.js');
+        $this->getClientScript()->registerScriptFile($assetPath . 'js/bootstrap.min.js');
     }
 
     /**
