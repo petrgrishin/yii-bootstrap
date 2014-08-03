@@ -13,12 +13,24 @@ use CAssetManager;
 
 class BootstrapAsset extends CApplicationComponent {
 
+    private $vendorPath;
+
     public function init() {
         parent::init();
-        $assetPath = $this->getAssetManager()->publish('/vendor/twbs/bootstrap/dist/');
-        $this->getClientScript()->registerCssFile($assetPath . 'css/bootstrap.min.css');
-        $this->getClientScript()->registerCssFile($assetPath . 'css/bootstrap-theme.min.css');
-        $this->getClientScript()->registerScriptFile($assetPath . 'js/bootstrap.min.js');
+        $vendorPath = $this->getVendorPath();
+        $assetPath = $this->getAssetManager()->publish($vendorPath . '/twbs/bootstrap/dist/');
+        $this->getClientScript()->registerCssFile($assetPath . '/css/bootstrap.min.css');
+        $this->getClientScript()->registerCssFile($assetPath . '/css/bootstrap-theme.min.css');
+        $this->getClientScript()->registerScriptFile($assetPath . '/js/bootstrap.min.js');
+    }
+
+    public function setVendorPath($vendorPath) {
+        $this->vendorPath = $vendorPath;
+        return $this;
+    }
+
+    protected function getVendorPath() {
+        return $this->vendorPath ?: sprintf('%s/..', \Yii::getPathOfAlias('application'));
     }
 
     /**
