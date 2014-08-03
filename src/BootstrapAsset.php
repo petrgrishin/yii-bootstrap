@@ -30,7 +30,7 @@ class BootstrapAsset extends CApplicationComponent {
     }
 
     protected function getVendorPath() {
-        return $this->vendorPath ?: sprintf('%s/..', \Yii::getPathOfAlias('application'));
+        return $this->vendorPath ?: sprintf('%s/../vendor', \Yii::getPathOfAlias('application'));
     }
 
     /**
