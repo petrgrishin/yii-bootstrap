@@ -5,7 +5,7 @@
     "require": {
         "php": ">=5.3.0",
         "yiisoft/yii": "*",
-        "beelab/bowerphp": "0.*@alpha"
+        "twbs/bootstrap": "~3.0"
     },
     "require-dev": {
         "league/phpunit-coverage-listener": "~1.0"
